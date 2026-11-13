@@ -1,0 +1,18 @@
+networks:
+  monitor-net:
+    driver: bridge
+
+volumes:
+  grafana_data: {}
+
+services:
+  grafana:
+    image: ${GRAFANA_IMAGE}
+    container_name: grafana
+    networks: [monitor-net]
+    profiles: [grafana]
+    ports: ["${GRAFANA_PORT}:3000"]
+    volumes:
+    - type: volume
+      source: grafana_data
+      target: /var/lib/grafana

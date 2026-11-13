@@ -1,0 +1,15 @@
+networks:
+  monitor-net:
+    driver: bridge
+
+include:
+  # DISPLAY
+  # - <service>/compose.<service>.yml
+  - path:     grafana/compose.grafana.yml
+    env_file: .env
+
+  # DATABASES
+  # - database/compose.<datasource>.yml
+
+  # EXPORTERS
+  # - exporter/compose.<endpoint>.yml
