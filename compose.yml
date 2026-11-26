@@ -2,10 +2,8 @@
 include:
   # NETWORK
   # - network/compose.<service>.yml
-  - path:     network/compose.grafana.yml
-    env_file: .env
-  - path:     network/compose.caddy.yml
-    env_file: .env
+  - network/compose.grafana.yml
+  - network/compose.caddy.yml
 
   # DATABASES
   # - database/compose.<datasource>.yml
