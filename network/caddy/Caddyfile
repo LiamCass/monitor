@@ -1,0 +1,4 @@
+# monitor/network/caddy/Caddyfile
+:{$GRAFANA_PORT} {
+	reverse_proxy grafana:{$GRAFANA_PORT}
+}

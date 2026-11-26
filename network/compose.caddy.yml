@@ -1,0 +1,14 @@
+# monitor/network/caddy/compose.yml
+services:
+  caddy:
+    image: ${CADDY_IMAGE}
+    container_name: caddy
+    profiles: [caddy,all]
+    ports: 
+    - "${GRAFANA_PORT}:${GRAFANA_PORT}"
+    volumes:
+    - type: bind
+      source: ./caddy
+      target: /etc/caddy/
+      read_only: true
+    env_file: .env
