@@ -1,3 +1,4 @@
+# monitor/grafana/compose.grafana.yml
 networks:
   monitor-net:
     driver: bridge
@@ -10,7 +11,7 @@ services:
     image: ${GRAFANA_IMAGE}
     container_name: grafana
     networks: [monitor-net]
-    profiles: [grafana]
+    profiles: [grafana,all]
     ports: ["${GRAFANA_PORT}:3000"]
     volumes:
     - type: volume

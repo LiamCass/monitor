@@ -1,11 +1,11 @@
+# monitor/compose.yml
 networks:
   monitor-net:
     driver: bridge
 
 include:
-  # DISPLAY
-  # - <service>/compose.<service>.yml
-  - path:     grafana/compose.grafana.yml
+  # GRAFANA
+  - path:     grafana/compose.yml
     env_file: .env
 
   # DATABASES
