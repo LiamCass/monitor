@@ -1,0 +1,21 @@
+# monitor/database/compose.prometheus.yml
+volumes:
+  prometheus_data: {}
+
+services:
+  prometheus:
+    image: ${PROMETHEUS_IMAGE}
+    container_name: prometheus
+    profiles: [prometheus,all]
+    env_file: .env
+    entrypoint: ["/bin/sh", "/etc/prometheus/entrypoint.sh"]
+    command:
+    - --web.listen-address=:${PROMETHEUS_PORT}
+    volumes:
+    - type: volume
+      source: prometheus_data
+      target: /prometheus
+    - type: bind
+      source: ./prometheus
+      target: /etc/prometheus
+      read_only: true
